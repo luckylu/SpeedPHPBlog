@@ -1,0 +1,109 @@
+<?php
+mysql_connect("127.0.0.1","root","");
+mysql_select_db("spblog");
+mysql_query("set names utf8");
+class main extends spController
+{
+	function index(){
+		$this->username=$_SESSION['name'];
+		$this->userid=$_SESSION['uid'];
+		
+		
+		$this->display("index.html");
+	}
+	
+	function show()   //显示文章
+	{
+		$comment=spClass("lib_comment");
+		$savecom=spClass("lib_savecom");
+		$pid=$this->spArgs('pid');
+		$conditions=array('pid'=>$pid);
+		$post=spClass('lib_post');
+		$result=$post->find(array('pid'=>$pid));
+		$this->result=$post->find(array('pid'=>$pid));//从post中获取cid值
+		$catid=explode(",",$result['cid']);   //获取单个cid值
+		$category=spClass('lib_category');
+		for($i=0;$i<sizeof($catid);$i++){
+		$cat[]=$category->find(array('cid'=>$catid[$i]));
+		}
+		for($i=0;$i<count($cat);$i++)
+		{
+			
+			$re[]=$cat[$i][name];
+		}
+		$this->comre=$savecom->findAll(array('pid'=>$pid),"scid DESC");
+		
+		$this->as=$re; //显示分类
+		$this->username=$_SESSION['name'];
+		$this->userid=$_SESSION['uid'];
+		
+		$this->display("post.html");
+	}
+
+	function searchcat()  //搜索所有同一分类的文章
+	{
+		$post=spClass("lib_post");
+		$cat=spClass("lib_category"); //用spClass分别初始化post和category表数据对象
+		$catname=$this->spArgs('catname');
+		$conditions=array(
+			'name'=>$catname);
+		$catre=$cat->find($conditions);
+		if($catre){
+		$this->postre=$post->findsql("select * from post where cid like '%$catre[cid]%'");}
+		
+		/*for($i=0;$i<sizeof($postre);$i++)
+		{
+			
+			$srpost_title[]=$postre[$i][title];
+			$srpost_content[]=$postre[$i][content];
+			$srpost_tag[]=$postre[$i][tag];
+			$srpost_author[]=$postre[$i][author];
+			$srpost_time[]=$postre[$i][time];
+			$srpost_cid[]=$postre[$i][cid];
+		}
+		$this->srpost_title1=$srpost_title;
+		$this->srpost_content=$srpost_content;
+		$this->srpost_tag=$srpost_tag;
+		$this->srpost_author=$srpost_author;
+		$this->srpost_time=$srpost_time;*/
+		
+		
+		$this->catname=$catname;
+		$this->display("searchcat.html");
+	}
+	
+	function comment()  //写评论
+	{
+		
+		$comment=spClass("lib_comment");
+		$user=spClass("lib_user");
+		$savecom=spClass("lib_savecom");
+		
+		$timezone = "Asia/shanghai";
+		date_default_timezone_set($timezone);
+		$newrow=array(
+
+			'content'=>$this->spArgs('content'),
+			'time'=>date('Y-m-d H:i:s'),
+			'pid'=>$this->spArgs('pid'),
+			'uid'=>$_SESSION['uid'],
+		);
+
+		if($this->spArgs('submit')){
+		$comment->create($newrow);
+
+		}
+				
+		$sql="select comment.content,user.name,post.pid from post,user,comment where comment.pid=post.pid and user.uid=comment.uid order by comment.coid DESC";  
+		$query=mysql_query($sql);
+		$queryre=mysql_fetch_array($query); //三表联立查询comment.content,user.name,post.pid
+		$savecomrow=array(
+			'pid'=>$queryre[pid],
+			'username'=>$queryre[name],
+			'content'=>$queryre[content],);
+		$savecom->create($savecomrow);  //把查到的数据插入数据表中 
+		dump($queryre);
+		$this->success('评论成功',spUrl('main','show',array('pid'=>$this->spArgs('pid'))));
+		
+	}
+}

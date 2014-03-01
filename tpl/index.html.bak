@@ -1,0 +1,20 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <title> <{$blogname}> </title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <meta name="Generator" content="EditPlus">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="<{$blogkeywords}>">
+  <meta name="Description" content="<{$blogdescription}>">
+ </head>
+
+ <body>
+  <{$username}></br><{$userid}>
+  <{if $username==""}>
+  <a href="<{spUrl c=member a=login}>">登录</a>
+  <{else}>
+  <a href="<{spUrl c=member a=logout}>">退出</a>
+  <{/if}>
+ </body>
+</html>

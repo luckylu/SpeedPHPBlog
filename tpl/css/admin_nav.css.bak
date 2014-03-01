@@ -1,0 +1,103 @@
+body,html{
+overflow-x:hidden;
+background-color:silver;
+padding:0 auto;
+margin:0 auto;
+
+}
+#main{
+margin-top:50px;
+border-bottom:1px solid;
+}
+ul li{
+list-style-type:none;
+
+}
+
+h2{
+position:relative;
+
+left:20px;
+font-size:25px;
+font-weight:bold;
+
+}
+.sh{
+border-top:1px solid;
+
+}
+.sh2,.sh4,.sh6
+{
+border-top:1px solid;
+position:relative;
+top:-10px;
+}
+
+.sh8
+{
+border-top:1px solid;
+
+position:relative;
+top:-10px;
+}
+ul.sh1{
+position:relative;
+left:10px;
+top:-15px;
+line-height:25px;
+padding:0 auto;
+margin:0 auto;
+}
+ul.sh3
+{
+position:relative;
+top:-15px;
+left:10px;
+padding:0 auto;
+margin:0 auto;
+}
+ul.sh5{
+position:relative;
+left:10px;
+top:-15px;
+line-height:25px;
+padding:0 auto;
+margin:0 auto;
+}
+ul.sh7{
+position:relative;
+left:10px;
+top:-15px;
+padding:0 auto;
+margin:0 auto;
+}
+ul.sh9{
+position:relative;
+left:10px;
+top:-15px;
+padding:0 auto;
+margin:0 auto;
+
+}
+
+
+a{text-decoration:none; }
+a:link {color: black}		/* 未访问的链接 */
+a:visited{color: black}		/*已访问的连接*/
+a:hover {color: blue}	/* 鼠标移动到链接上 */
+
+.sh h2:before{
+content:url(../img/compose-2.png)
+}
+.sh2 h2:before{
+content:url(../img/speech-bubble-left-4.png)
+}
+.sh4 h2:before{
+content:url(../img/menu.png)
+}
+.sh6 h2:before{
+content:url(../img/users.png)
+}
+.sh8 h2:before{
+content:url(../img/settings.png)
+}

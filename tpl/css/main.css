@@ -1,0 +1,359 @@
+@charset "utf-8";
+/* CSS Document */
+
+html,body
+{
+	margin:0;
+	padding:0;
+	height:100%;
+	background:url(../img/mac.png) fixed;
+
+}
+.pagewrap
+{
+	width:1100px;
+	margin:0 auto;
+	min-height:100%;
+	
+}
+.logo
+{
+	
+	margin:10px auto;
+	padding:0 auto;
+}
+#nav
+{
+	margin:20px auto;
+	
+
+}
+#nav ul
+{
+    margin: 0px; /* 与外界元素的距离为0 */
+    padding: 0px; /* 与内部元素的距离为0 */
+    width: auto; /* 宽度根据元素内容调整 */
+
+}
+/* 所有class为menu的div中的ul中的li样式 */
+#nav ul li.other
+{
+    float:left; /* 向左漂移，将竖排变为横排 */
+	width:100px;
+    background:url(../img/nav1.png) repeat-x;
+	margin:0px;
+	padding:0;
+	height:55px;
+	list-style:none;
+
+}
+#nav ul li.home
+{
+	background:url(../img/home.png) no-repeat;
+	float:left; /* 向左漂移，将竖排变为横排 */
+	width:100px;
+ 	margin:0px;
+	padding:0;
+	height:55px;
+	list-style:none;
+}
+/* 所有class为menu的div中的ul中的a样式(包括尚未点击的和点击过的样式) */
+#nav ul li a, nav ul li a:visited
+{
+    color:#465c71; /* 文字颜色 */
+	display:block;
+    line-height: 30px; /* 行高 */
+    padding: 4px 20px; /* 内部填充的距离 */
+    text-decoration: none; /* 不显示超链接下划线 */
+    white-space: nowrap; /* 对于文本内的空白处，不会换行，文本会在在同一行上继续，直到遇到 <br> 标签为止。 */
+	text-align:center;
+	height:40px;
+	font-size:20px;
+	font-family:"MS Serif", "New York", serif;
+	font-weight:bold;
+}
+#nav ul li.home a, nav ul li.home a:visited
+{
+    color:#FBFBFB; /* 文字颜色 */
+	display:block;
+    line-height: 30px; /* 行高 */
+    padding: 4px 20px; /* 内部填充的距离 */
+    text-decoration: none; /* 不显示超链接下划线 */
+    white-space: nowrap; /* 对于文本内的空白处，不会换行，文本会在在同一行上继续，直到遇到 <br> 标签为止。 */
+	text-align:center;
+	height:40px;
+}
+/* 所有class为menu的div中的ul中的a样式(鼠标移动到元素中的样式) */
+#nav ul li.other a:hover
+{
+    background:url(../img/nav2.png) repeat-x; /* 背景色 */
+    color:#bce2e8; /* 文字颜色 */
+    text-decoration: none; /* 不显示超链接下划线 */
+}
+/* 所有class为menu的div中的ul中的a样式(鼠标点击元素时的样式) */
+#nav ul li a.other:active
+{
+    background-color: #465c71; /* 背景色 */
+    color: #cfdbe6; /* 文字颜色 */
+    text-decoration: none; /* 不显示超链接下划线 */
+}
+a.title:link,a.title:visited
+{
+	text-decoration:none;
+}
+a.title:link
+{
+	color:black;
+}
+a.title:visited
+{
+	color:black;
+}
+a.title:hover
+{
+	color:red;
+	text-decoration:underline;
+}
+.article
+{	
+	width:699px;
+	float:left;
+	clear:left;
+	margin:10px auto;
+}
+
+.tables
+{
+	background-image:url(../img/linedpaper.png);
+	background-repeat:repeat;
+	margin:10px auto 20px auto;
+	padding:10px 10px 10px 10px;
+    border: 1px solid #cffdff;
+    -moz-border-radius: 15px;      /* Gecko browsers */
+    -webkit-border-radius: 15px;   /* Webkit browsers */
+    border-radius:15px;            /* W3C syntax */
+}
+h3,h5
+{
+	text-align:left;
+	font-family:"MS Serif", "New York", serif;
+}
+h3
+{
+	font-size:24px;
+}
+h5
+{
+	padding-bottom:10px;
+}
+.content p
+{
+	text-indent:2em;
+	line-height:100%;
+}
+
+#sidebar
+{
+	width:350px;
+	float:right;
+	margin:20px auto auto 50px;
+	padding:0 auto;
+
+}
+.comment,.lastestpost,.function,#search_box,.links
+{
+	background-image:url(../img/linedpaper.png);
+	background-repeat:repeat;
+	margin:0 auto 20px auto;
+	padding:10px 10px 10px 10px;
+    border: 1px solid #cffdff;
+    -moz-border-radius: 15px;      /* Gecko browsers */
+    -webkit-border-radius: 15px;   /* Webkit browsers */
+    border-radius:15px;            /* W3C syntax */
+}
+.style1{width: 150px;}
+.style1:focus{width: 230px; border-color:#7fd7d8;} 
+input{color: #666;
+padding: 6px;
+margin: 10px;       
+outline: none;       
+overflow:hidden;       
+border-radius: 5px;       
+background: #fafafa;       
+border: 1px solid #ddd;       
+-moz-box-shadow: inset 1px 1px 10px rgba(0,0,0,0.1);       
+-webkit-box-shadow: inset 1px 1px 10px rgba(0,0,0,0.1);       
+box-shadow: inset 1px 1px 10px rgba(0,0,0,0.1);       
+-webkit-transition: all .3s;       
+-moz-transition: all .3s;       
+-o-transition: all .3s;   
+} 
+.searchicon
+{
+	position:relative;
+	top:21px;
+	right:20px;
+}
+.page
+{
+	float:left;
+	clear:left;
+	margin:0 auto 30px auto;
+	padding:0 auto -170px auto;
+
+}
+.page1
+{
+	float:left;
+}
+.pages
+{
+	float:left;
+}
+
+.page a:link,.page a:visited
+{
+	display:inline-block;
+	white-space: nowrap;
+	background:url(../img/page1.png) no-repeat;
+	text-decoration: none;
+	text-align:center;
+	line-height:45px;
+	height:40px;
+	width:45px;
+}
+.page a:hover
+{
+	background:url(../img/page2.png) no-repeat;
+	text-decoration: none;
+}
+b.page3
+{
+	background:url(../img/page2.png) no-repeat;
+	display:inline-block;
+		text-align:center;
+	line-height:45px;
+	height:40px;
+	width:45px;
+}
+#footer
+{
+	position:relative;
+	margin-top:-170px;
+	clear:both;
+	width:100%;
+	height:170px;
+	background:url(../img/foot.jpg) repeat;
+	border-bottom-style:
+}
+.social
+{
+position:absolute; 
+width:600px; 
+margin:30px auto; 
+left:50%; 
+margin-left:-250px; 
+}
+.social ul
+{
+    margin: 0px; /* 与外界元素的距离为0 */
+    padding: 0px; /* 与内部元素的距离为0 */
+    width: auto; /* 宽度根据元素内容调整 */
+
+}
+.social ul li
+{
+	width:200px;
+	float:left;
+	list-style:none;
+
+}
+.social ul li.weibo
+{
+	margin-top:3px;
+}
+.social ul li a,.social ul li a:visited
+{
+	text-decoration:none;
+	
+}
+.social ul li a:hover img
+{
+    -webkit-animation-name:y-ain;
+    -webkit-animation-duration:5s;
+    -webkit-animation-timing-function:ease;
+    -webkit-animation-iteration-count:infinite;
+}
+@-webkit-keyframes y-ain{
+    0%{-webkit-transform:rotatex(0deg);}
+    100%{-webkit-transform:rotatex(180deg);}
+    }
+.footertext
+{
+	position:absolute;
+	top:120px;
+	right:10px;
+}
+
+.post
+{
+	width:677px;
+	float:left;
+	
+	margin:20px auto;
+	background-image:url(../img/linedpaper.png);
+	background-repeat:repeat;
+	
+	padding:10px;
+    border: 1px solid #cffdff;
+    -moz-border-radius: 15px;      /* Gecko browsers */
+    -webkit-border-radius: 15px;   /* Webkit browsers */
+    border-radius:15px;            /* W3C syntax */
+}
+.postcomment
+{
+	float:left;
+	
+	width:677px;
+	
+	background-image:url(../img/linedpaper.png);
+	background-repeat:repeat;
+	margin-bottom:100px;
+	padding:10px;
+    border: 1px solid #cffdff;
+    -moz-border-radius: 15px;      /* Gecko browsers */
+    -webkit-border-radius: 15px;   /* Webkit browsers */
+    border-radius:15px;            /* W3C syntax */
+}
+.pcomments
+{
+	border-bottom: dashed  thin;
+}
+h5.information
+{
+	border-bottom: solid #e51 3px;
+}
+.aboutmain
+{
+	background-image:url(../img/linedpaper.png);
+	background-repeat:repeat;
+	height:825px;
+	margin:10px auto 20px auto;
+	padding:30px;
+    border: 1px solid #cffdff;
+    -moz-border-radius: 15px;      /* Gecko browsers */
+    -webkit-border-radius: 15px;   /* Webkit browsers */
+    border-radius:15px;            /* W3C syntax */
+}
+.contactmain
+{
+	background-image:url(../img/linedpaper.png);
+	background-repeat:repeat;
+	height:825px;
+	margin:10px auto 20px auto;
+	padding:30px;
+    border: 1px solid #cffdff;
+    -moz-border-radius: 15px;      /* Gecko browsers */
+    -webkit-border-radius: 15px;   /* Webkit browsers */
+    border-radius:15px;            /* W3C syntax */
+}

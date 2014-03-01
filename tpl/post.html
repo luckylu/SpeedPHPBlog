@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <title> 文章页 </title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <meta name="Generator" content="EditPlus">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+   <link rel="stylesheet" href="../sp/tpl/css/main.css" type="text/css" />
+ </head>
+
+ <body>
+ <div class="pagewrap">
+ <{include file="head.html"}>
+ <div class="post">
+<h3><{$result.title}></h3>
+<h5 class="information">作者：<{$result.author}> | 时间：<{$result.time}> | 评论数：<{$commentnum}></h5>
+<p><{$result.content}></p><br/>
+<p>标签：<{$result.tag}></p>
+<p>分类：<{foreach item=one from=$as}>
+<a href="<{spUrl c=main a=searchcat catname=$one}>"><{$one}></a></p><br/>
+<{/foreach}>
+</div>
+
+<{include file="sidebar.html"}>
+
+<div class="postcomment">
+<P>留言内容：</P>
+<{if !$comre}>
+<p>还没有人留言，快来抢沙发吧！</p>
+<{else}>
+<{section name=one loop=$comre}>
+<div class="pcomments">
+<table border="0">
+<tr>
+<td><p>作者：<{$comre[one].username}> 时间：<{$comre[one].time}></p>
+<p><{$comre[one].content}></p></td>
+</tr>
+</table>
+</div>
+<{/section}>
+<{/if}><br/><br/>
+<{if $username==""}>
+请先<a href="<{spUrl c=member a=register}>">注册</a>或者<a href="<{spUrl c=member a=login}>">登录</a>后才能留言
+<{else}>
+<p>欢迎您：<{$username}>&nbsp;<a href="<{spUrl c=member a=logout}>">退出</a></p>
+<{/if}>
+  <form action="<{spUrl c=main a=comment}>" name="commentform" method="post">
+  <p>留言：</p><textarea name="content" type="text" rows="10" cols="80"></textarea>
+  <input type="hidden" name="coid" ></input>
+  <input type="hidden" name="pid" value="<{$result.pid}>" />
+  <p><input name="submit" type="submit" value="提交" /></p>
+  </form>
+  </div>
+  </div>
+  
+  <{include file="footer.html"}> 
+  
+ </body>
+</html>

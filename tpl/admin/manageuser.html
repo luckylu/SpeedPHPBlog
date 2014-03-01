@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <title> 用户管理 </title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <meta name="Generator" content="EditPlus">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <link rel="stylesheet" href="../sp/tpl/css/admin.css" type="text/css" />
+  <script type="text/javascript" src="../sp/tpl/js/jquery-1.9.1.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function(){ 
+$("table tr:nth-child(even)").addClass("even");
+$("table tr:nth-child(odd)").addClass("odd");
+})
+
+</script>
+ </head>
+
+ <body>
+ <div class=main>
+<table class="customers">
+<tr width="400">
+<th width="200" align="left">用户名</th>
+<th width="200" align="left">邮箱</th>
+<th width="200" align="left">操作</th>
+</tr>
+<{section name=value loop=$result}>
+<tr width="600">
+<td><{$result[value].name}></td>
+<td><{$result[value].email}></td>
+<td><a href="<{spUrl c=admin a=edituser uid=$result[value].uid}>">修改</a>|<a href="<{spUrl c=admin a=edituserpw uid=$result[value].uid}>">更改密码</a>|<a href="<{spUrl c=admin a=deleteuser uid=$result[value].uid}>">删除</a></td>
+</tr>
+<{/section}>
+</table>
+
+<{if $pager}>
+共有用户<{$pager.total_count}>个，共有<{$pager.total_page}>页（每页<{$pager.page_size}>个用户）：
+<!--在当前页不是第一页的时候，显示前页和上一页-->
+<{if $pager.current_page != $pager.first_page}>
+<a href="<{spUrl c=admin a=manageuser page=$pager.first_page}>">首页</a> | 
+<a href="<{spUrl c=admin a=manageuser page=$pager.prev_page}>">上一页</a> | 
+<{/if}>
+<!--开始循环页码，同时如果循环到当前页则不显示链接-->
+<{foreach from=$pager.all_pages item=thepage}>
+	<{if $thepage != $pager.current_page}>
+		<a href="<{spUrl c=admin a=manageuser page=$thepage}>"><{$thepage}></a>
+	<{else}>
+		<b><{$thepage}></b>
+	<{/if}>
+<{/foreach}>
+<!--在当前页不是最后一页的时候，显示下一页和后页-->
+<{if $pager.current_page != $pager.last_page}>
+ | 
+<a href="<{spUrl c=admin a=manageuser page=$pager.next_page}>">下一页</a> | 
+<a href="<{spUrl c=admin a=manageuser page=$pager.last_page}>">尾页</a>
+<{/if}>
+<{/if}>
+</div>
+ </body>
+</html>

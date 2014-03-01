@@ -1,0 +1,7 @@
+<?php
+class lib_aclid extends spModel
+{
+	var $pk="aclid";
+	var $table="acl";
+}
+?>

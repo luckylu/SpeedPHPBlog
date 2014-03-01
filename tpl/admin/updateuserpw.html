@@ -1,0 +1,23 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <title> 更改密码 </title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <meta name="Generator" content="EditPlus">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <link rel="stylesheet" href="../sp/tpl/css/admin.css" type="text/css" />
+ </head>
+
+ <body>
+ <div class="main">
+  <form action="<{spUrl c=admin a=updateuserpw}>" name="updateuserpwform" method="post">
+<p>新密码：<input type="password" name="password" /><{foreach item=two from=$re.password}><{$two}> <{/foreach}></p>
+<p>重复密码：<input type="password" name="password1" /><{foreach item=two from=$re.password1}><{$two}> <{/foreach}></p>
+<input type="hidden" name="uid" value="<{$res.uid}>" />
+<input type="submit" name="submit" value="提交"/>
+</form>
+</div>
+ </body>
+</html>

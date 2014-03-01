@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <title> 注册 </title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <meta name="Generator" content="EditPlus">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <link rel="stylesheet" href="../sp/tpl/css/member.css" type="text/css" />
+  <script type="text/javascript" src="../sp/tpl/js/jquery-1.9.1.js"></script>
+  <script type="text/javascript" src="../sp/tpl/js/Validform_v5.3.2_ncr_min.js"></script>
+<script type="text/javascript">
+$(function(){
+$(".registerform").Validform(
+{btnSubmit:".submitbtn",
+postonce:true,
+	tiptype:3,
+});
+$(".registerform").Resetform();
+})
+</script>
+ </head>
+
+ <body>
+ <div class="pagewrap">
+<form action="<{spUrl c=member a=register}>" class="registerform" name="registerforms" method="post">
+<table border="0">
+<tr>
+<td>用&nbsp;户&nbsp;名：</td>
+<td><input value="昵称5-16个字符！" name="name" type="text" tip="昵称5-16个字符！" altercss="gray" datatype="s5-16" errormsg="昵称至少5个字符,最多16个字符！"/></td><td><p class="namerror"><{$username}></p></td>
+<td><div class="Validform_checktip"></div></td>
+</tr>
+<tr>
+<td>密&nbsp;&nbsp;&nbsp;&nbsp;码：</td>
+<td><input name="password" type="password" datatype="*6-15" errormsg="密码范围在6~15位之间！" /></td>
+<td><div class="Validform_checktip"></div></td>
+</tr>
+<tr>
+<td>重复密码：</td>
+<td><input name="password1" type="password" datatype="*" recheck="password" errormsg="您两次输入的账号密码不一致！"/></td>
+<td><div class="Validform_checktip"></div></td>
+</tr>
+<tr>
+<td>邮&nbsp;&nbsp;&nbsp;&nbsp;箱：</td>
+<td><input name="email" type="text" datatype="e" errormsg="请填写正确的邮箱地址！"/></td>
+<td><div class="Validform_checktip"></div></td>
+</tr>
+<tr>
+<td>网&nbsp;&nbsp;&nbsp;&nbsp;址：</td>
+<td><input name="url" type="text" datatype="url" errormsg="请填写正确的网址！"/></td>
+</tr>
+<tr>
+<td><input class="submitbtn" name="register" value="注册" type="submit"/></td><td><input type="reset" value="重 置" /></td>
+</tr>
+</table>
+ </form>
+ </div>
+ </body>
+</html>

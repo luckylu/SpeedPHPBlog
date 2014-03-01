@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <title> 边栏 </title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <meta name="Generator" content="EditPlus">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+   <link rel="stylesheet" href="../sp/tpl/css/main.css" type="text/css" />
+ </head>
+
+<body>
+
+<div id="sidebar">
+	<div id="search_box">
+    	<form id="searchform" name="searchform" method="post" action="<{spUrl c=main a=search}>">
+		<input class="style1" name="keyword" type="text" placeholder="搜一下，你就找到！" />
+		<input class="searchicon" type="image" src="http://localhost/sp/tpl/img/search.gif">
+		</form>
+    </div>
+
+	<div class="comment">
+		<p>热门评论:</p>
+		<{foreach item=one from=$comtitle}>
+		<p><{$one.username}> 发表在 <span>"<{$one.title}>"</span></p>
+		
+			<p>"——<{$one.com}>"</p>
+		<{/foreach}>
+	</div>
+    <div class="lastestpost">
+    	<p>最新文章:</p>
+    	<{foreach item=one from=$postre}>
+    	<a href="<{spUrl c=main a=show pid=$one.pid}>" target="_blank"><p><{$one.title}></p></a>
+    	<{/foreach}>
+    </div>
+    <div class="function">
+		<p>功能：</p>
+ 		<{if $username==""}>
+        <p>您还没登陆，请先<a href="<{spUrl c=member a=login}>">登录</a></p>
+        <p>神马！？你还没有账号！赶紧<a href="<{spUrl c=member a=register}>">注册一个</a>吧！</p>
+ 		<{else}>
+        <p>欢迎您:
+     	<{$username}>！</p>
+ 		<p><a href="<{spUrl c=member a=logout}>">退出</a></p>
+ 		<{/if}>
+    </div>
+        <div class="links">
+    	<p>友情链接:</p>
+        <ul>
+    	<{foreach item=one from=$links}>
+        <li>
+    	<p><a href="<{$one.url}>" target="_blank"><{$one.name}></a> | <{$one.url}></p>
+        </li>
+    	<{/foreach}>
+        </ul>
+    </div>
+</div>
+
+</body>
+</html>

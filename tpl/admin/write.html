@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <title> 写文章 </title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <meta name="Generator" content="EditPlus">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <link rel="stylesheet" href="../sp/tpl/css/admin.css" type="text/css" />
+  <script type="text/javascript" src="ckeditor/ckeditor.js"></script>
+<script type="text/javascript">
+
+    window.onload = function()
+    {
+        CKEDITOR.replace('content' );
+    };
+
+</script>
+ </head>
+
+ <body>
+ <div class=main>
+  <form name="writeform" action="<{$setwrite.url}>" method="post">
+  <p>标题：<br/><input name="title" type="text" value="<{$p.title}>" /></p>
+  <p>内容：<br/><textarea name="content" class="ckeditor" ><{$p.content}></textarea></p>
+  <input type="hidden" name="pid" value="<{$p.pid}>"></input>
+  <P>标签:<input type="text" value="<{$p.tag}>" name="tag"/></p>
+  <p class="catmain">分类:</p><{html_checkboxes name="cid" options=$value checked=$catresult_cid separator="<br />"}>
+
+<{foreach item=one from=$result}>
+<ul class="cat clearfix"><li>
+<input type="checkbox" name="cid[]" value="<{$one.cid}>" /><{$one.name}><br />
+</li></ul>
+<{/foreach}>
+  <input class="btn" name="submit" type="submit" value="<{$setwrite.btn}>" />
+  </form>
+
+</div>
+  </body>
+</html>

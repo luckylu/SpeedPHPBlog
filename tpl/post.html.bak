@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <title> New Document </title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <meta name="Generator" content="EditPlus">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+ </head>
+
+ <body>
+<{$result.title}>
+<{$result.content}>
+<p>标签：<p/><{$result.tag}><br/>
+  <p>分类：</p>
+<{foreach item=one from=$as}>
+<a href="<{spUrl c=admin a=searchcat catname=$one}>"><{$one}></a><br/>
+<{/foreach}>
+留言内容：
+<table border="1">
+<{section name=one loop=$comre}>
+<tr>
+<td><p>名字：</p><{$comre[one].username}></td>
+<td><p>内容：</p><{$comre[one].content}></td>
+</tr>
+<{/section}>
+</table>
+<{if $username==""}>
+请先<a href="<{spUrl c=member a=register}>">注册</a>或者<a href="<{spUrl c=member a=login}>">登录</a>后才能留言
+<{else}>
+<p>欢迎您：<{$username}></p>
+<{/if}>
+  <form action="<{spUrl c=main a=comment}>" name="commentform" method="post">
+  <p>留言：<textarea name="content" type="text"></textarea></p>
+  <input type="hidden" name="coid" ></input>
+  <input type="hidden" name="pid" value="<{$result.pid}>" />
+  <input name="submit" type="submit" value="提交" />
+  
+ </body>
+</html>

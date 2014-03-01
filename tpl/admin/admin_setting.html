@@ -1,0 +1,24 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <title> New Document </title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <meta name="Generator" content="EditPlus">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <link rel="stylesheet" href="../sp/tpl/css/admin.css" type="text/css" />
+ </head>
+
+ <body>
+ <div class="main">
+  <form action="<{spUrl c=admin a=admin_setting}>" form=settingform method=post>
+<P>博&nbsp;&nbsp;客&nbsp;&nbsp;名:&nbsp;<input type="text" name="blogname" value="<{$re.name}>"/></p>
+<P>博&nbsp;客&nbsp;描&nbsp;述:<input type="text" name="blogdescription" value="<{$re.description}>" /></p>
+<P>博客关键词:&nbsp;<input type="text" name="blogkeywords" value="<{$re.keywords}>"/></p>
+<input type="submit" name="submit" value="提交" />
+
+  </form>
+  </div>
+ </body>
+</html>

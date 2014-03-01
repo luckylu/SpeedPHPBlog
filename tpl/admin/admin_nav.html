@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <title> New Document </title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <meta name="Generator" content="EditPlus">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <link rel="stylesheet" href="../sp/tpl/css/admin_nav.css" type="text/css" />
+  <script type="text/javascript" src="../sp/tpl/js/jquery-1.9.1.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+  $(".sh1,.sh3,.sh5,.sh7,.sh9,.sh11").hide(200);
+});
+$(document).ready(function(){
+$(".sh").click(function(){
+  $(".sh1").slideToggle(200);
+  $(".sh3,.sh5,.sh7,.sh9,.sh11").hide(200);
+});
+});
+$(document).ready(function(){
+$(".sh2").click(function(){
+  $(".sh3").slideToggle(200);
+  $(".sh1,.sh5,.sh7,.sh9,.sh11").hide(200);
+});
+});
+$(document).ready(function(){
+$(".sh4").click(function(){
+  $(".sh5").slideToggle(200);
+  $(".sh1,.sh3,.sh7,.sh9,.sh11").hide(200);
+});
+});
+$(document).ready(function(){
+$(".sh6").click(function(){
+  $(".sh7").slideToggle(200);
+  $(".sh1,.sh3,.sh5,.sh9,.sh11").hide(200);
+});
+});
+$(document).ready(function(){
+$(".sh8").click(function(){
+  $(".sh9").slideToggle(200);
+  $(".sh1,.sh3,.sh5,.sh7,.sh11").hide(200);
+});
+});
+$(document).ready(function(){
+$(".sh10").click(function(){
+  $(".sh11").slideToggle(200);
+  $(".sh1,.sh3,.sh5,.sh7,.sh9").hide(200);
+});
+});
+
+</script>
+ </head>
+
+ <body>
+<div id="main">
+<div class="first">
+<p>欢迎您:<b><{$username}></b>!</p>
+<p><a href="http://localhost/sp" target="_blank">返回首页</a></p>
+</div>
+<div class="sh">
+ <h2><a href="#">文章</a></h2>
+   </div>
+  <ul class="sh1">
+  <li><a href="<{spUrl c=admin a=add}>" target="main">写文章</a></li>
+  <li><a href="<{spUrl c=admin a=manage}>" target="main">管理文章</a></li>
+  </ul>
+ 
+  <div class="sh2"><h2><a href="#">评论</a></h2></div>
+  <ul class="sh3">
+  <li><a href="<{spUrl c=admin a=managecomment}>" target="main">评论管理</a></li>
+  </ul>
+  <div class=sh4><h2><a href="#">分类</a></h2></div>
+  <ul class="sh5">
+  <li><a href="<{spUrl c=admin a=addcat}>" target="main">添加分类</a></li>
+  <li><a href="<{spUrl c=admin a=catmanage}>" target="main">管理分类</a></li>
+  </ul>
+    <div class="sh10"><h2><a href="#">友链</a></h2></div>
+  <ul class="sh11">
+  <li><a href="<{spUrl c=admin a=addlinks}>" target="main">添加友链</a></li>
+  <li><a href="<{spUrl c=admin a=linksmanage}>" target="main">友链管理</a></li>
+  </ul>
+  <div class="sh6"><h2><a href="#">用户</a></h2></div>
+  <ul class="sh7">
+  <li><a href="<{spUrl c=admin a=manageuser}>" target="main">管理用户</a></li>
+  </ul>
+    <div class="sh8"><h2><a href="#">设置</a></h2></div>
+  <ul class="sh9">
+  <li><a href="<{spUrl c=admin a=admin_settings}>" target="main">博客设置</a></li>
+  </ul>
+
+</div>
+ </body>
+</html>

@@ -1,0 +1,7 @@
+<?php
+class lib_savecom extends spModel
+{
+	var $pk="content";
+	var $table="savecom";
+}
+?>

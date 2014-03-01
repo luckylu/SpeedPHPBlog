@@ -1,0 +1,27 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <title> New Document </title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <meta name="Generator" content="EditPlus">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+ </head>
+
+ <body>
+<{section name=one loop=$postre}>
+  
+
+  <{$postre[one].title}>
+  <{$postre[one].time}>
+  <{$postre[one].content}>
+  <{$postre[one].tag}>
+  
+  <hr/>
+<{$catname}>
+  <{sectionelse}>
+	此分类下还没有文章哦！
+  <{/section}>
+ </body>
+</html>

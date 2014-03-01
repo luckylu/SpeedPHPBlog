@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../sp/tpl/css/main.css" type="text/css" />
+<title>head</title>
+</head>
+
+<body>
+<div class="logo">
+<img src="http://localhost/sp/tpl/img/logo.gif" />
+
+</div>
+<div id="nav">
+ 	<ul>
+		<li class="home"><a href="../sp">首页</a></li>
+        <{foreach item=one from=$catre}>
+        <li class="other"><a href="<{spUrl c=main a=searchcat catname=$one.name}>"><{$one.name}></a></li>
+		<{/foreach}>
+        <li class="other"><a href="<{spUrl c=main a=about}>">关于</a></li>
+        <li class="other"><a href="<{spUrl c=main a=contact}>">Contact</a></li>
+	</ul>
+ </div>
+</body>
+</html>

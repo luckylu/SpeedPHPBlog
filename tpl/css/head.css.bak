@@ -1,0 +1,8 @@
+body,html{
+background-color:black; 
+background-repeat:repeat-x;
+margin:0 auto;
+padding:0 auto;
+height:29px;
+
+}

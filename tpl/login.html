@@ -1,0 +1,28 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <title> 登录 </title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <meta name="Generator" content="EditPlus">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+   <link rel="stylesheet" href="../sp/tpl/css/member.css" type="text/css" />
+ </head>
+
+ <body>
+ <div class="loginpage">
+ <div class="main">
+ <form action="<{spUrl c=member a=login}>" name="loginform" method="post">
+<div class="text"><p>博客系统登陆</p></div>
+<div class="username"><input name="name" type="text" /><{foreach item=one from=$re.name}><{$one}><{/foreach}></div>
+<div class="password"><input name="password" type="password" /><{foreach item=one from=$re.password}><{$one}><{/foreach}></div>
+<div class="checkpic"><label>验证码：</label><input name="checkpic" type="text" size="4"/></div><div class="checkimg"><img src="http://localhost/sp/include/checkpic.php" name="checkpic"></div>
+<div class="login">
+<input name="submit" type="submit" value="登录" /></div>
+<{$fail}>
+ </form>
+ </div>
+ </div>
+ </body>
+</html>

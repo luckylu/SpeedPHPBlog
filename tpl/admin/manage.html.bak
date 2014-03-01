@@ -1,0 +1,69 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <title> 管理文章 </title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <meta name="Generator" content="EditPlus">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <link rel="stylesheet" href="../sp/tpl/css/admin.css" type="text/css" />
+  <script type="text/javascript" src="../sp/tpl/js/jquery-1.9.1.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function(){ 
+$("table tr:nth-child(even)").addClass("even");
+$("table tr:nth-child(odd)").addClass("odd");
+})
+
+</script>
+ </head>
+
+ <body>
+ <div class=main>
+<table  class="customers">
+<tr>
+<th>标题</th>
+<th>分类</th>
+<th>时间</th>
+<th>操作</th>
+</tr>
+<{nocache}>
+<{foreach item=value from=$cre}>
+<tr>
+<td><{$value.title}></td>
+<td><{$value.catname}></td>
+<td><{$value.time}></td>
+<td><a href="<{spUrl c=main a=show pid=$value.pid}>" target="_blank">查看</a>|<a href="<{spUrl c=admin a=edit pid=$value.pid}>">修改</a>|<a href="<{spUrl c=admin a=delete pid=$value.pid}>">删除</a></td>
+</tr>
+<{/foreach}>
+<{/nocache}>
+</table>
+
+<{if !$result}>
+还没有文章，赶快去添加吧！<a href="<{spUrl c=admin a=add}>">添加留言</a>
+<{/if}>
+<{if $pager}>
+共有文章<{$pager.total_count}>篇，共有<{$pager.total_page}>页（每页<{$pager.page_size}>篇文章）：
+<!--在当前页不是第一页的时候，显示前页和上一页-->
+<{if $pager.current_page != $pager.first_page}>
+<a href="<{spUrl c=admin a=manage page=$pager.first_page}>">首页</a> | 
+<a href="<{spUrl c=admin a=manage page=$pager.prev_page}>">上一页</a> | 
+<{/if}>
+<!--开始循环页码，同时如果循环到当前页则不显示链接-->
+<{foreach from=$pager.all_pages item=thepage}>
+	<{if $thepage != $pager.current_page}>
+		<a href="<{spUrl c=admin a=manage page=$thepage}>"><{$thepage}></a>
+	<{else}>
+		<b><{$thepage}></b>
+	<{/if}>
+<{/foreach}>
+<!--在当前页不是最后一页的时候，显示下一页和后页-->
+<{if $pager.current_page != $pager.last_page}>
+ | 
+<a href="<{spUrl c=admin a=manage page=$pager.next_page}>">下一页</a> | 
+<a href="<{spUrl c=admin a=manage page=$pager.last_page}>">尾页</a>
+<{/if}>
+<{/if}>
+</div>
+ </body>
+</html>

@@ -1,0 +1,7 @@
+<?php
+class lib_cpu extends spModel
+{
+	var $pk="coid";
+	var $table="cpu";
+}
+?>
